@@ -1,35 +1,22 @@
+"use client";
+
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ThemeToggle } from "@/components/commons/theme-toggle";
-
-const projects = [
-    {
-        title: "Manufacturing Dashboard",
-        description: "Realtime machine monitoring with MQTT & Laravel",
-        href: "/projects/manufacturing-dashboard",
-        category: "Industrial",
-        tech: ["Laravel", "Livewire", "MQTT"],
-    },
-    {
-        title: "Next.js Portfolio",
-        description: "Personal portfolio with modern UI and animations",
-        href: "/projects/next-portfolio",
-        category: "Software",
-        tech: ["Next.js", "Tailwind", "shadcn/ui"],
-    },
-    {
-        title: "PET Recycling System",
-        description: "Production & automation documentation hub",
-        href: "/projects/pet-recycling",
-        category: "Industrial",
-        tech: ["Automation", "Manufacturing", "Data"],
-    },
-];
+import { useProjects } from "@/hooks/useProject";
 
 export default function ProjectHub() {
+    const {
+        projects,
+        setKeyword,
+        setCategoryId,
+        categories,
+        categoryId
+    } = useProjects();
+
     return (
         <section className="min-h-screen px-6 py-16">
             <div className="mx-auto max-w-6xl">
@@ -39,28 +26,41 @@ export default function ProjectHub() {
                         Kumpulan project software dan industrial system yang pernah saya kerjakan.
                     </p>
                 </header>
-
                 <nav className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="flex gap-3">
-                        <Button variant="default" size="sm">All</Button>
-                        <Button variant="outline" size="sm">Software</Button>
-                        <Button variant="outline" size="sm">Industrial</Button>
+                    <div className="flex gap-2">
+                        <Button
+                            size="sm"
+                            className="transition-colors duration-200"
+                            variant={categoryId === null ? "default" : "outline"}
+                            onClick={() => setCategoryId(null)}
+                        >
+                            All
+                        </Button>
+
+                        {categories.map(cat => (
+                            <Button
+                                key={cat.id}
+                                className="transition-colors duration-200"
+                                size="sm"
+                                variant={categoryId === cat.id ? "default" : "outline"}
+                                onClick={() => setCategoryId(cat.id)}
+                            >
+                                {cat.name}
+                            </Button>
+                        ))}
                     </div>
 
 
-                    <div className="flex w-full items-center gap-2 sm:w-auto">
-                        <div className="w-full sm:w-64">
-                            <Input placeholder="Search project..." className="w-full" />
-                        </div>
 
-
+                    <div className="flex items-center gap-2">
+                        <Input placeholder="Search project..." onChange={e => setKeyword(e.target.value)} />
                         <ThemeToggle />
                     </div>
                 </nav>
 
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {projects.map((project) => (
-                        <Link key={project.title} href={project.href} className="group">
+                        <Link key={project.title} href={project.project_url} className="group">
                             <Card className="h-full transition-all hover:-translate-y-1 hover:shadow-lg">
                                 <CardHeader>
                                     <div className="flex items-center justify-between">
@@ -71,7 +71,7 @@ export default function ProjectHub() {
                                 </CardHeader>
                                 <CardContent>
                                     <div className="flex flex-wrap gap-2">
-                                        {project.tech.map((t) => (
+                                        {project.technologyNames.map(t => (
                                             <Badge key={t} variant="outline">{t}</Badge>
                                         ))}
                                     </div>
@@ -84,3 +84,6 @@ export default function ProjectHub() {
         </section>
     );
 }
+
+
+

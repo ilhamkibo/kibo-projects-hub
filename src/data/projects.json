@@ -1,0 +1,103 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Software",
+            "slug": "software"
+        },
+        {
+            "id": 2,
+            "name": "Industrial",
+            "slug": "industrial"
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1,
+            "name": "Next.js",
+            "slug": "nextjs"
+        },
+        {
+            "id": 2,
+            "name": "Laravel",
+            "slug": "laravel"
+        },
+        {
+            "id": 3,
+            "name": "MQTT",
+            "slug": "mqtt"
+        },
+        {
+            "id": 4,
+            "name": "Livewire",
+            "slug": "livewire"
+        },
+        {
+            "id": 5,
+            "name": "Tailwind",
+            "slug": "tailwind"
+        },
+        {
+            "id": 6,
+            "name": "shadcn/ui",
+            "slug": "shadcn-ui"
+        },
+        {
+            "id": 7,
+            "name": "Automation",
+            "slug": "automation"
+        }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "slug": "manufacturing-dashboard",
+            "title": "Manufacturing Dashboard",
+            "short_description": "Realtime machine monitoring system",
+            "description": "Dashboard monitoring mesin produksi menggunakan MQTT dan Laravel.",
+            "category_id": 2,
+            "technologies": [
+                2,
+                3,
+                4
+            ],
+            "project_url": "https://manufacturing.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": true
+        },
+        {
+            "id": 2,
+            "slug": "nextjs-portfolio",
+            "title": "Next.js Portfolio",
+            "short_description": "Personal portfolio website",
+            "description": "Portfolio modern dengan Next.js, Tailwind dan shadcn/ui.",
+            "category_id": 1,
+            "technologies": [
+                1,
+                5,
+                6
+            ],
+            "project_url": "https://portfolio.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": false
+        },
+        {
+            "id": 3,
+            "slug": "pet-recycling-system",
+            "title": "PET Recycling System",
+            "short_description": "Industrial automation documentation hub",
+            "description": "Dokumentasi dan monitoring sistem daur ulang PET.",
+            "category_id": 2,
+            "technologies": [
+                7,
+                3
+            ],
+            "project_url": "https://pet-recycling.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": false
+        }
+    ]
+}
