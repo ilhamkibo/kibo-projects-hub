@@ -21,6 +21,8 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isWide = pathname === "/projects";
+
   return (
     <header
       className={cn(
@@ -30,7 +32,12 @@ export function Navbar() {
           : "bg-transparent"
       )}
     >
-      <nav className="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between">
+      <nav
+        className={cn(
+          "mx-auto px-6 h-14 flex items-center justify-between transition-all duration-300",
+          isWide ? "max-w-6xl" : "max-w-3xl"
+        )}
+      >
         <Link
           href="/"
           className="text-sm font-medium tracking-tight hover:opacity-60 transition-opacity"

@@ -1,89 +1,149 @@
 "use client";
 
-import Link from "next/link";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { ThemeToggle } from "@/components/commons/theme-toggle";
+import { ArrowUpRight, Search, FolderGit2, Layers, Wrench, MapPin } from "lucide-react";
 import { useProjects } from "@/hooks/useProject";
+import rawData from "@/data/projects.json";
 
 export default function ProjectHub() {
-    const {
-        projects,
-        setKeyword,
-        setCategoryId,
-        categories,
-        categoryId
-    } = useProjects();
+  const { projects, setKeyword, setCategoryId, categories, categoryId } =
+    useProjects();
 
-    return (
-        <section className="min-h-screen px-6 py-16">
-            <div className="mx-auto max-w-6xl">
-                <header className="mb-10 flex flex-col gap-3">
-                    <h1 className="text-4xl font-bold tracking-tight">Ilham Prima's Project Hub</h1>
-                    <p className="text-muted-foreground max-w-xl">
-                        Kumpulan project software dan industrial system yang pernah saya kerjakan.
-                    </p>
-                </header>
-                <nav className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="flex gap-2">
-                        <Button
-                            size="sm"
-                            className="transition-colors duration-200"
-                            variant={categoryId === null ? "default" : "outline"}
-                            onClick={() => setCategoryId(null)}
-                        >
-                            All
-                        </Button>
+  const stats = [
+    {
+      label: "Projects",
+      value: rawData.projects.filter((p) => p.status === "published").length,
+      icon: FolderGit2,
+    },
+    {
+      label: "Categories",
+      value: rawData.categories.length,
+      icon: Layers,
+    },
+    {
+      label: "Technologies",
+      value: rawData.technologies.length,
+      icon: Wrench,
+    },
+    {
+      label: "Based in",
+      value: "Bekasi",
+      icon: MapPin,
+    },
+  ];
 
-                        {categories.map(cat => (
-                            <Button
-                                key={cat.id}
-                                className="transition-colors duration-200"
-                                size="sm"
-                                variant={categoryId === cat.id ? "default" : "outline"}
-                                onClick={() => setCategoryId(cat.id)}
-                            >
-                                {cat.name}
-                            </Button>
-                        ))}
-                    </div>
+  return (
+    <section className="pt-24 pb-24 md:pt-32 md:pb-32">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <div className="mb-10">
+          <h1 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
+            Projects
+          </h1>
+          <p className="text-base text-muted-foreground leading-relaxed max-w-lg">
+            A collection of software and industrial projects I have worked on.
+          </p>
+        </div>
 
-
-
-                    <div className="flex items-center gap-2">
-                        <Input placeholder="Search project..." onChange={e => setKeyword(e.target.value)} />
-                        <ThemeToggle />
-                    </div>
-                </nav>
-
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {projects.map((project) => (
-                        <Link key={project.title} href={project.project_url} className="group">
-                            <Card className="h-full transition-all hover:-translate-y-1 hover:shadow-lg">
-                                <CardHeader>
-                                    <div className="flex items-center justify-between">
-                                        <CardTitle className="text-lg">{project.title}</CardTitle>
-                                        <Badge variant="secondary">{project.category}</Badge>
-                                    </div>
-                                    <CardDescription>{project.description}</CardDescription>
-                                </CardHeader>
-                                <CardContent>
-                                    <div className="flex flex-wrap gap-2">
-                                        {project.technologyNames.map(t => (
-                                            <Badge key={t} variant="outline">{t}</Badge>
-                                        ))}
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </Link>
-                    ))}
-                </div>
+        {/* Stats */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 pb-10 border-b border-border">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="flex flex-col gap-2 p-4 border border-border rounded-sm hover:border-foreground/20 transition-colors"
+            >
+              <stat.icon className="h-4 w-4 text-muted-foreground" />
+              <div>
+                <p className="text-2xl font-bold tabular-nums">{stat.value}</p>
+                <p className="text-xs text-muted-foreground">{stat.label}</p>
+              </div>
             </div>
-        </section>
-    );
+          ))}
+        </div>
+
+        {/* Filters */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+          <div className="flex flex-wrap gap-1">
+            <button
+              onClick={() => setCategoryId(null)}
+              className={`px-3 py-1.5 text-sm transition-colors rounded-sm ${
+                categoryId === null
+                  ? "bg-foreground text-background"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              All
+            </button>
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setCategoryId(cat.id)}
+                className={`px-3 py-1.5 text-sm transition-colors rounded-sm ${
+                  categoryId === cat.id
+                    ? "bg-foreground text-background"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {cat.name}
+              </button>
+            ))}
+          </div>
+
+          <div className="relative w-full sm:w-52">
+            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+            <input
+              placeholder="Search project..."
+              onChange={(e) => setKeyword(e.target.value)}
+              className="w-full pl-8 pr-3 py-1.5 text-sm border border-border rounded-sm bg-transparent text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground/30 transition-colors"
+            />
+          </div>
+        </div>
+
+        {/* Project Grid */}
+        {projects.length === 0 ? (
+          <p className="text-sm text-muted-foreground py-12 text-center">
+            No projects found.
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {projects.map((project) => (
+              <a
+                key={project.id}
+                href={project.project_url}
+                target={project.open_in_new_tab ? "_blank" : undefined}
+                rel={
+                  project.open_in_new_tab ? "noopener noreferrer" : undefined
+                }
+                className="group flex flex-col p-5 border border-border rounded-sm hover:border-foreground/25 hover:bg-muted/30 transition-all duration-200"
+              >
+                <div className="flex items-start justify-between gap-2 mb-3">
+                  <h2 className="font-semibold leading-snug group-hover:underline decoration-1 underline-offset-4">
+                    {project.title}
+                  </h2>
+                  <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0 mt-0.5" />
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-grow">
+                  {project.short_description}
+                </p>
+                <div className="flex flex-wrap items-center justify-between gap-2 mt-auto pt-3 border-t border-border/50">
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.technologyNames.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-[11px] px-2 py-0.5 bg-secondary text-secondary-foreground rounded-sm"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="text-[11px] text-muted-foreground font-mono">
+                    {project.category}
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
 }
-
-
-
