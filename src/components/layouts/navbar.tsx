@@ -42,7 +42,7 @@ export function Navbar() {
           href="/"
           className="text-sm font-medium tracking-tight hover:opacity-60 transition-opacity"
         >
-          Ilham Ramadhan
+          Ilham Prima
         </Link>
 
         <div className="flex items-center gap-1">
