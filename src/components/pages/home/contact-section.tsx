@@ -8,7 +8,7 @@ const socialLinks = [
   },
   {
     name: "LinkedIn",
-    handle: "Ilham Ramadhan",
+    handle: "Ilham Prima Y",
     href: "https://linkedin.com/in",
   },
   {

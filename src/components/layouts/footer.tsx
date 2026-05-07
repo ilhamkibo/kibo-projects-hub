@@ -41,7 +41,7 @@ export function Footer() {
               href="/"
               className="text-sm font-medium tracking-tight hover:opacity-60 transition-opacity"
             >
-              Ilham Ramadhan
+              Ilham Prima Y
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Software engineer based in Bekasi, building web systems for

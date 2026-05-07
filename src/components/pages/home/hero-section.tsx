@@ -9,7 +9,7 @@ export function HeroSection() {
           {/* Top — Name & Location */}
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter leading-[1.05]">
-              Ilham Ramadhan
+              Ilham Prima Y
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground leading-snug max-w-xl">
               Software engineer based in Bekasi, Indonesia.
