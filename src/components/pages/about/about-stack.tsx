@@ -1,7 +1,3 @@
-"use client";
-
-import { useState } from "react";
-
 const categories = [
   {
     name: "Frontend",
@@ -13,8 +9,6 @@ const categories = [
       "Real-time Charts",
       "React Native",
     ],
-    direction: "left" as const,
-    duration: 35,
   },
   {
     name: "Backend",
@@ -26,8 +20,6 @@ const categories = [
       "Go",
       "WebSocket",
     ],
-    direction: "right" as const,
-    duration: 42,
   },
   {
     name: "Industrial IoT",
@@ -38,8 +30,6 @@ const categories = [
       "Edge Computing",
       "Time-series DB",
     ],
-    direction: "left" as const,
-    duration: 38,
   },
   {
     name: "DevOps & Tools",
@@ -51,92 +41,58 @@ const categories = [
       "Nginx",
       "Prometheus",
     ],
-    direction: "right" as const,
-    duration: 46,
   },
 ];
 
 export function AboutStack() {
   return (
-    <section className="py-24 md:py-32 border-t border-border overflow-hidden">
-      {/* Header */}
-      <div className="max-w-3xl mx-auto px-6 mb-14">
-        <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
-          Stack & Expertise
-        </h2>
-        <p className="text-sm text-muted-foreground/70 mt-2 max-w-md leading-relaxed">
-          Technologies I work with daily — categorized by domain and built for
-          industrial-grade production systems.
-        </p>
-      </div>
+    <section className="py-24 md:py-32 border-t border-border">
+      <div className="max-w-3xl mx-auto px-6">
+        {/* Header */}
+        <div className="mb-14">
+          <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+            Stack & Expertise
+          </h2>
+          <p className="text-sm text-muted-foreground/70 mt-2 max-w-md leading-relaxed">
+            Technologies I work with daily — categorized for clarity, built for
+            industrial-grade production systems.
+          </p>
+        </div>
 
-      {/* Marquee rows */}
-      <div className="space-y-8">
-        {categories.map((cat, i) => (
-          <div key={cat.name}>
-            {/* Category label */}
-            <div className="max-w-3xl mx-auto px-6 mb-3 flex items-center gap-3">
-              <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
-                {cat.name}
-              </span>
-              <span className="h-px flex-1 bg-border" />
-            </div>
-
-            {/* Marquee */}
-            <Marquee
-              direction={cat.direction}
-              duration={cat.duration}
+        {/* Bento grid: 2×2 on desktop, stacked on mobile */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {categories.map((cat) => (
+            <div
+              key={cat.name}
+              className="group relative border border-border hover:border-foreground/20 transition-colors duration-200 rounded-sm p-5 sm:p-6"
             >
-              {[...cat.items, ...cat.items, ...cat.items].map((item, j) => (
-                <span
-                  key={`${i}-${j}`}
-                  className="inline-flex items-center gap-3 mx-5"
-                >
-                  <span className="text-sm font-semibold tracking-tight whitespace-nowrap text-foreground/80">
+              {/* Corner accent */}
+              <span className="absolute top-0 right-0 w-6 h-px bg-foreground/10 group-hover:w-8 group-hover:bg-foreground/30 transition-all duration-300" />
+              <span className="absolute top-0 right-0 w-px h-6 bg-foreground/10 group-hover:h-8 group-hover:bg-foreground/30 transition-all duration-300" />
+
+              {/* Category name */}
+              <h3 className="text-xs text-muted-foreground uppercase tracking-wider font-medium mb-4">
+                {cat.name}
+              </h3>
+
+              {/* Divider */}
+              <div className="h-px bg-border mb-4" />
+
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
+                {cat.items.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-2.5 text-sm text-foreground/80 group-hover:text-foreground transition-colors duration-200"
+                  >
+                    <span className="block h-1 w-1 rounded-full bg-foreground/20 shrink-0" />
                     {item}
-                  </span>
-                  <span className="block h-1 w-1 rounded-full bg-foreground/20" />
-                </span>
-              ))}
-            </Marquee>
-          </div>
-        ))}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
-  );
-}
-
-function Marquee({
-  children,
-  direction,
-  duration,
-}: {
-  children: React.ReactNode;
-  direction: "left" | "right";
-  duration: number;
-}) {
-  const [isPaused, setIsPaused] = useState(false);
-
-  return (
-    <div
-      className="relative w-full overflow-hidden"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      {/* Gradient fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-
-      <div
-        className="flex"
-        style={{
-          animation: `marquee-${direction} ${duration}s linear infinite`,
-          animationPlayState: isPaused ? "paused" : "running",
-          width: "max-content",
-        }}
-      >
-        {children}
-      </div>
-    </div>
   );
 }
