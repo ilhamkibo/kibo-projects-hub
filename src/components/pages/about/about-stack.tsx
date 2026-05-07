@@ -2,69 +2,105 @@
 
 import { useState } from "react";
 
-const favoriteTools = [
-  { name: "TypeScript", label: "TypeScript" },
-  { name: "React", label: "React" },
-  { name: "Next.js", label: "Next.js" },
-  { name: "Node.js", label: "Node.js" },
-  { name: "PostgreSQL", label: "PostgreSQL" },
-  { name: "Redis", label: "Redis" },
-  { name: "Docker", label: "Docker" },
-  { name: "Tailwind CSS", label: "Tailwind CSS" },
-  { name: "GraphQL", label: "GraphQL" },
-  { name: "MQTT", label: "MQTT" },
-  { name: "Go", label: "Go" },
-  { name: "React Native", label: "React Native" },
+const categories = [
+  {
+    name: "Frontend",
+    items: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Real-time Charts",
+      "React Native",
+    ],
+    direction: "left" as const,
+    duration: 35,
+  },
+  {
+    name: "Backend",
+    items: [
+      "Node.js",
+      "PostgreSQL",
+      "Redis",
+      "GraphQL / REST",
+      "Go",
+      "WebSocket",
+    ],
+    direction: "right" as const,
+    duration: 42,
+  },
+  {
+    name: "Industrial IoT",
+    items: [
+      "MQTT / OPC-UA",
+      "Modbus TCP",
+      "PLC Integration",
+      "Edge Computing",
+      "Time-series DB",
+    ],
+    direction: "left" as const,
+    duration: 38,
+  },
+  {
+    name: "DevOps & Tools",
+    items: [
+      "Docker",
+      "Linux",
+      "Git",
+      "CI/CD Pipelines",
+      "Nginx",
+      "Prometheus",
+    ],
+    direction: "right" as const,
+    duration: 46,
+  },
 ];
-
-// Duplicate for seamless looping
-const marqueeItems = [...favoriteTools, ...favoriteTools];
 
 export function AboutStack() {
   return (
     <section className="py-24 md:py-32 border-t border-border overflow-hidden">
-      <div className="max-w-3xl mx-auto px-6 mb-12">
+      {/* Header */}
+      <div className="max-w-3xl mx-auto px-6 mb-14">
         <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
-          Favorite Stack
+          Stack & Expertise
         </h2>
         <p className="text-sm text-muted-foreground/70 mt-2 max-w-md leading-relaxed">
-          Tools and technologies I reach for every day — battle-tested and
-          production-proven.
+          Technologies I work with daily — categorized by domain and built for
+          industrial-grade production systems.
         </p>
       </div>
 
-      {/* Marquee row 1 — left to right */}
-      <div className="relative mb-6">
-        <Marquee direction="left" duration={40}>
-          {marqueeItems.map((item, i) => (
-            <span
-              key={`row1-${i}`}
-              className="inline-flex items-center gap-3 mx-6"
-            >
-              <span className="text-sm font-semibold tracking-tight whitespace-nowrap text-foreground/80">
-                {item.name}
+      {/* Marquee rows */}
+      <div className="space-y-8">
+        {categories.map((cat, i) => (
+          <div key={cat.name}>
+            {/* Category label */}
+            <div className="max-w-3xl mx-auto px-6 mb-3 flex items-center gap-3">
+              <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
+                {cat.name}
               </span>
-              <span className="block h-1 w-1 rounded-full bg-foreground/20" />
-            </span>
-          ))}
-        </Marquee>
-      </div>
+              <span className="h-px flex-1 bg-border" />
+            </div>
 
-      {/* Marquee row 2 — right to left (slower) */}
-      <div className="relative">
-        <Marquee direction="right" duration={50}>
-          {marqueeItems.map((item, i) => (
-            <span
-              key={`row2-${i}`}
-              className="inline-flex items-center gap-3 mx-6"
+            {/* Marquee */}
+            <Marquee
+              direction={cat.direction}
+              duration={cat.duration}
             >
-              <span className="text-sm font-semibold tracking-tight whitespace-nowrap text-foreground/80">
-                {item.name}
-              </span>
-              <span className="block h-1 w-1 rounded-full bg-foreground/20" />
-            </span>
-          ))}
-        </Marquee>
+              {[...cat.items, ...cat.items, ...cat.items].map((item, j) => (
+                <span
+                  key={`${i}-${j}`}
+                  className="inline-flex items-center gap-3 mx-5"
+                >
+                  <span className="text-sm font-semibold tracking-tight whitespace-nowrap text-foreground/80">
+                    {item}
+                  </span>
+                  <span className="block h-1 w-1 rounded-full bg-foreground/20" />
+                </span>
+              ))}
+            </Marquee>
+          </div>
+        ))}
       </div>
     </section>
   );

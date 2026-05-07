@@ -3,7 +3,6 @@ import { AboutHero } from "@/components/pages/about/about-hero";
 import { AboutPhotoScroll } from "@/components/pages/about/about-photo-scroll";
 import { AboutJourney } from "@/components/pages/about/about-journey";
 import { AboutStack } from "@/components/pages/about/about-stack";
-import { AboutExpertise } from "@/components/pages/about/about-expertise";
 import { AboutValues } from "@/components/pages/about/about-values";
 import { AboutCta } from "@/components/pages/about/about-cta";
 
@@ -20,7 +19,6 @@ export default function AboutPage() {
       <AboutPhotoScroll />
       <AboutJourney />
       <AboutStack />
-      <AboutExpertise />
       <AboutValues />
       <AboutCta />
     </main>

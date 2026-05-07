@@ -17,13 +17,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Ilham Ramadhan — Software Engineer",
-    template: "%s | Ilham Ramadhan"
+    default: "Ilham Prima Y — Software Engineer",
+    template: "%s | Ilham Prima Y"
   },
   description: "Software Engineer with 4+ years of experience specializing in modern web development, TypeScript, React, and scalable systems.",
-  keywords: ["Ilham Ramadhan", "Software Engineer", "Full Stack Developer", "React", "Next.js", "TypeScript", "Portfolio"],
+  keywords: ["Ilham Prima Y", "Software Engineer", "Full Stack Developer", "React", "Next.js", "TypeScript", "Portfolio"],
   openGraph: {
-    title: "Ilham Ramadhan — Software Engineer",
+    title: "Ilham Prima Y — Software Engineer",
     description: "Software Engineer with 4+ years of experience building modern web applications.",
     type: "website",
   }
