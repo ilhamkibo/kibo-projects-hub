@@ -13,32 +13,49 @@ export function AboutHero() {
   return (
     <section className="min-h-[85dvh] flex flex-col justify-center pt-14">
       <div className="max-w-3xl mx-auto px-6 w-full">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12">
-          {/* Photo */}
-          <div className="shrink-0 flex md:block justify-center">
-            <div className="relative w-32 h-32 md:w-56 md:h-56 overflow-hidden rounded-sm">
-              <Image
-                src="/images/my-photo.jpg"
-                alt="Ilham Prima Y"
-                fill
-                className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                priority
-              />
+        {/* Photo + Name row */}
+        <div className="flex flex-col md:flex-row gap-8 md:gap-14 items-start">
+          {/* Photo with frame */}
+          <div className="shrink-0 flex md:block justify-center w-full md:w-auto">
+            <div className="relative group">
+              {/* Decorative frame behind */}
+              <div className="absolute -inset-3 border border-border rounded-sm translate-x-2 translate-y-2 transition-transform duration-500 group-hover:translate-x-3 group-hover:translate-y-3" />
+              {/* Decorative accent line */}
+              <div className="absolute -top-1 -left-1 w-8 h-8 border-t-2 border-l-2 border-foreground/20 rounded-tl-sm" />
+              <div className="absolute -bottom-1 -right-1 w-8 h-8 border-b-2 border-r-2 border-foreground/20 rounded-br-sm" />
+
+              <div className="relative w-36 h-44 sm:w-44 sm:h-52 md:w-52 md:h-64 overflow-hidden rounded-sm bg-muted">
+                <Image
+                  src="/images/photo-hero.jpg"
+                  alt="Ilham Prima Y"
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out"
+                  priority
+                />
+              </div>
+
+              {/* Small label under photo */}
+              <div className="mt-3 flex items-center gap-2">
+                <span className="h-px w-4 bg-foreground/30" />
+                <span className="text-[10px] text-muted-foreground font-mono uppercase tracking-widest">
+                  Bekasi, 2024
+                </span>
+              </div>
             </div>
           </div>
 
           {/* Content */}
-          <div className="flex-1 space-y-6">
+          <div className="flex-1 space-y-6 pt-1">
             <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
               About Me
             </p>
 
-            <div className="space-y-4">
-              <h1 className="text-3xl sm:text-4xl font-bold tracking-tighter leading-[1.1]">
+            <div className="space-y-3">
+              <h1 className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold tracking-tighter leading-[1.05]">
                 Ilham Prima Y
               </h1>
               <p className="text-sm text-muted-foreground uppercase tracking-wider font-medium">
-                Software Engineer · Bekasi, Indonesia
+                Software Engineer · Manufacturing Tech
               </p>
             </div>
 
@@ -49,7 +66,7 @@ export function AboutHero() {
               make better decisions.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-4 pt-2">
+            <div className="grid sm:grid-cols-2 gap-4 pt-1">
               <p className="text-sm text-muted-foreground leading-relaxed">
                 My journey started with curiosity about how machines
                 communicate. That curiosity turned into a career building MES
