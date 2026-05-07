@@ -41,11 +41,10 @@ export function ProjectsSection() {
               href={project.project_url}
               target={project.open_in_new_tab ? "_blank" : undefined}
               rel={project.open_in_new_tab ? "noopener noreferrer" : undefined}
-              className={`group relative block py-6 sm:py-7 ${
-                index !== publishedProjects.length - 1
-                  ? "border-b border-border"
-                  : ""
-              } hover:bg-muted/30 -mx-6 px-6 transition-colors duration-200`}
+              className={`group relative block py-6 sm:py-7 ${index !== publishedProjects.length - 1
+                ? "border-b border-border"
+                : ""
+                } hover:bg-muted/30 -mx-6 px-6 transition-colors duration-200`}
             >
               {/* Left accent line on hover */}
               <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-foreground/20 scale-y-0 group-hover:scale-y-100 transition-transform duration-200 origin-top" />
