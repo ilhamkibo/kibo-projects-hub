@@ -7,6 +7,7 @@ import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
 ];
 
@@ -99,7 +100,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex items-center justify-between pt-6 border-t border-border/50">
           <p className="text-xs text-muted-foreground">
-            {currentYear} Ilham Ramadhan. All rights reserved.
+            {currentYear} Ilham Prima Y. All rights reserved.
           </p>
           <button
             onClick={scrollToTop}

@@ -19,6 +19,8 @@ const categories = [
       "GraphQL / REST",
       "Go",
       "WebSocket",
+      "Kafka",
+      "RabbitMQ",
     ],
   },
   {

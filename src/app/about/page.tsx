@@ -16,10 +16,10 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen">
       <AboutHero />
-      <AboutPhotoScroll />
       <AboutJourney />
       <AboutStack />
       <AboutValues />
+      <AboutPhotoScroll />
       <AboutCta />
     </main>
   );
