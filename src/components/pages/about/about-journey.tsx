@@ -39,7 +39,7 @@ export function AboutJourney() {
 
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border hidden sm:block" />
+          <div className="absolute left-1.75 top-2 bottom-2 w-px bg-border hidden sm:block" />
 
           <div className="space-y-10">
             {milestones.map((item, index) => (
@@ -51,9 +51,9 @@ export function AboutJourney() {
                 <div className="flex items-start gap-3">
                   <span className="hidden sm:flex relative mt-1.5 h-3.5 w-3.5 shrink-0 items-center justify-center">
                     <span className="absolute h-full w-full rounded-full border border-border bg-background group-hover:border-foreground/40 transition-colors" />
-                    <span className="h-1.5 w-1.5 rounded-full bg-foreground/30 group-hover:bg-foreground/60 transition-colors" />
+                    <span className="relative z-10 h-1.5 w-1.5 rounded-full bg-foreground/60 group-hover:bg-foreground transition-colors" />
                   </span>
-                  <span className="text-sm font-mono text-muted-foreground tabular-nums">
+                  <span className="text-sm font-mono text-muted-foreground mt-0.5 tabular-nums">
                     {item.year}
                   </span>
                 </div>

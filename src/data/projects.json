@@ -9,6 +9,21 @@
             "id": 2,
             "name": "Industrial",
             "slug": "industrial"
+        },
+        {
+            "id": 3,
+            "name": "Data & AI",
+            "slug": "data-ai"
+        },
+        {
+            "id": 4,
+            "name": "Mobile",
+            "slug": "mobile"
+        },
+        {
+            "id": 5,
+            "name": "DevOps",
+            "slug": "devops"
         }
     ],
     "technologies": [
@@ -46,6 +61,121 @@
             "id": 7,
             "name": "Automation",
             "slug": "automation"
+        },
+        {
+            "id": 8,
+            "name": "React Native",
+            "slug": "react-native"
+        },
+        {
+            "id": 9,
+            "name": "Python",
+            "slug": "python"
+        },
+        {
+            "id": 10,
+            "name": "TensorFlow",
+            "slug": "tensorflow"
+        },
+        {
+            "id": 11,
+            "name": "PostgreSQL",
+            "slug": "postgresql"
+        },
+        {
+            "id": 12,
+            "name": "Docker",
+            "slug": "docker"
+        },
+        {
+            "id": 13,
+            "name": "Firebase",
+            "slug": "firebase"
+        },
+        {
+            "id": 14,
+            "name": "Flutter",
+            "slug": "flutter"
+        },
+        {
+            "id": 15,
+            "name": "Go",
+            "slug": "go"
+        },
+        {
+            "id": 16,
+            "name": "TypeScript",
+            "slug": "typescript"
+        },
+        {
+            "id": 17,
+            "name": "Prisma",
+            "slug": "prisma"
+        },
+        {
+            "id": 18,
+            "name": "Supabase",
+            "slug": "supabase"
+        },
+        {
+            "id": 19,
+            "name": "Redis",
+            "slug": "redis"
+        },
+        {
+            "id": 20,
+            "name": "Figma",
+            "slug": "figma"
+        },
+        {
+            "id": 21,
+            "name": "Grafana",
+            "slug": "grafana"
+        },
+        {
+            "id": 22,
+            "name": "Prometheus",
+            "slug": "prometheus"
+        },
+        {
+            "id": 23,
+            "name": "Kotlin",
+            "slug": "kotlin"
+        },
+        {
+            "id": 24,
+            "name": "Spring Boot",
+            "slug": "spring-boot"
+        },
+        {
+            "id": 25,
+            "name": "SCADA",
+            "slug": "scada"
+        },
+        {
+            "id": 26,
+            "name": "Raspberry Pi",
+            "slug": "raspberry-pi"
+        },
+        {
+            "id": 27,
+            "name": "Node.js",
+            "slug": "node-js"
+        },
+        {
+            "id": 28,
+            "name": "Express.js",
+            "slug": "express-js"
+        },
+        {
+            "id": 29,
+            "name": "MongoDB",
+            "slug": "mongodb"
+        },
+        {
+            "id": 30,
+            "name": "Redis",
+            "slug": "redis"
         }
     ],
     "projects": [
@@ -53,14 +183,10 @@
             "id": 1,
             "slug": "manufacturing-dashboard",
             "title": "Manufacturing Dashboard",
-            "short_description": "Realtime machine monitoring system",
-            "description": "Dashboard monitoring mesin produksi menggunakan MQTT dan Laravel.",
+            "short_description": "Realtime machine monitoring system with MQTT integration",
+            "description": "Dashboard monitoring mesin produksi secara realtime menggunakan MQTT broker, Laravel backend, dan Livewire untuk antarmuka interaktif. Mendukung multi-line production dan alert otomatis.",
             "category_id": 2,
-            "technologies": [
-                2,
-                3,
-                4
-            ],
+            "technologies": [2, 3, 4, 11],
             "project_url": "https://manufacturing.example.com",
             "open_in_new_tab": true,
             "status": "published",
@@ -70,14 +196,10 @@
             "id": 2,
             "slug": "nextjs-portfolio",
             "title": "Next.js Portfolio",
-            "short_description": "Personal portfolio website",
-            "description": "Portfolio modern dengan Next.js, Tailwind dan shadcn/ui.",
+            "short_description": "Personal portfolio website built with Next.js",
+            "description": "Portfolio modern dengan Next.js App Router, Tailwind CSS, shadcn/ui, dan dukungan tema gelap/terang.",
             "category_id": 1,
-            "technologies": [
-                1,
-                5,
-                6
-            ],
+            "technologies": [1, 5, 6, 16],
             "project_url": "https://portfolio.example.com",
             "open_in_new_tab": true,
             "status": "published",
@@ -87,14 +209,232 @@
             "id": 3,
             "slug": "pet-recycling-system",
             "title": "PET Recycling System",
-            "short_description": "Industrial automation documentation hub",
-            "description": "Dokumentasi dan monitoring sistem daur ulang PET.",
+            "short_description": "Industrial automation for PET bottle recycling",
+            "description": "Sistem otomasi daur ulang botol PET dengan PLC, MQTT untuk data telemetry, dan dashboard monitoring realtime.",
             "category_id": 2,
-            "technologies": [
-                7,
-                3
-            ],
+            "technologies": [7, 3, 25, 26],
             "project_url": "https://pet-recycling.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": true
+        },
+        {
+            "id": 4,
+            "slug": "inventory-management",
+            "title": "Inventory Management System",
+            "short_description": "Full-stack warehouse inventory tracking app",
+            "description": "Aplikasi manajemen inventaris gudang dengan fitur barcode scanning, stock opname, dan forecasting menggunakan machine learning.",
+            "category_id": 1,
+            "technologies": [2, 4, 5, 11, 19],
+            "project_url": "https://inventory.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": false
+        },
+        {
+            "id": 5,
+            "slug": "scada-ml-predictor",
+            "title": "SCADA ML Predictor",
+            "short_description": "Predictive maintenance using SCADA data and ML",
+            "description": "Model machine learning untuk prediksi kegagalan mesin berdasarkan data SCADA historis. Menggunakan TensorFlow dan Python dengan deployment via Docker.",
+            "category_id": 3,
+            "technologies": [9, 10, 12, 21, 22],
+            "project_url": "https://scada-ml.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": false
+        },
+        {
+            "id": 6,
+            "slug": "food-truck-finder",
+            "title": "Food Truck Finder",
+            "short_description": "React Native app to find nearby food trucks",
+            "description": "Aplikasi mobile untuk menemukan food truck terdekat dengan lokasi realtime, rating, dan menu digital. Dibangun dengan React Native dan Firebase.",
+            "category_id": 4,
+            "technologies": [8, 13, 5],
+            "project_url": "https://foodtruck-finder.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": false
+        },
+        {
+            "id": 7,
+            "slug": "energy-monitoring-platform",
+            "title": "Energy Monitoring Platform",
+            "short_description": "Realtime energy consumption analytics dashboard",
+            "description": "Platform monitoring konsumsi energi untuk pabrik dengan visualisasi Grafana, alert Prometheus, dan pipeline data Go.",
+            "category_id": 2,
+            "technologies": [15, 21, 22, 12, 11],
+            "project_url": "https://energy-monitor.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": true
+        },
+        {
+            "id": 8,
+            "slug": "ecommerce-microservices",
+            "title": "E-Commerce Microservices",
+            "short_description": "Scalable e-commerce platform with microservices architecture",
+            "description": "Platform e-commerce modern menggunakan arsitektur microservices dengan Go, PostgreSQL, Redis caching, dan Docker orchestration.",
+            "category_id": 1,
+            "technologies": [15, 11, 19, 12, 16],
+            "project_url": "https://ecommerce-micro.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": false
+        },
+        {
+            "id": 9,
+            "slug": "sentiment-analysis-tool",
+            "title": "Sentiment Analysis Tool",
+            "short_description": "NLP-based sentiment analyzer for customer reviews",
+            "description": "Alat analisis sentimen untuk ulasan pelanggan menggunakan NLP dan TensorFlow. Mendukung bahasa Indonesia dan Inggris dengan visualisasi interaktif.",
+            "category_id": 3,
+            "technologies": [9, 10, 1, 5],
+            "project_url": "https://sentiment.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": false
+        },
+        {
+            "id": 10,
+            "slug": "iot-smart-farming",
+            "title": "IoT Smart Farming",
+            "short_description": "Automated hydroponic monitoring & control system",
+            "description": "Sistem monitoring dan kontrol hidroponik otomatis berbasis IoT dengan ESP32, MQTT, dan dashboard Laravel untuk kontrol nutrisi dan pH realtime.",
+            "category_id": 2,
+            "technologies": [3, 7, 26, 2, 4],
+            "project_url": "https://smart-farming.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": false
+        },
+        {
+            "id": 11,
+            "slug": "flutter-pos-system",
+            "title": "Flutter POS System",
+            "short_description": "Cross-platform point-of-sale application",
+            "description": "Aplikasi POS (Point of Sale) lintas platform dengan Flutter, mendukung offline-first, cetak struk Bluetooth, dan integrasi payment gateway.",
+            "category_id": 4,
+            "technologies": [14, 13, 5, 9],
+            "project_url": "https://flutter-pos.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": false
+        },
+        {
+            "id": 12,
+            "slug": "kubernetes-cluster-monitoring",
+            "title": "Kubernetes Cluster Monitor",
+            "short_description": "Infrastructure monitoring with Prometheus & Grafana",
+            "description": "Setup lengkap monitoring cluster Kubernetes menggunakan Prometheus, Grafana, dan custom alerting rules untuk production-grade observability.",
+            "category_id": 5,
+            "technologies": [12, 15, 21, 22],
+            "project_url": "https://k8s-monitor.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": false
+        },
+        {
+            "id": 13,
+            "slug": "ai-chatbot-customer-service",
+            "title": "AI Customer Service Chatbot",
+            "short_description": "LLM-powered chatbot for customer support automation",
+            "description": "Chatbot layanan pelanggan berbasis LLM dengan RAG pipeline, PostgreSQL vector store, dan integrasi WhatsApp & Telegram.",
+            "category_id": 3,
+            "technologies": [9, 10, 11, 27, 5],
+            "project_url": "https://ai-chatbot.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": true
+        },
+        {
+            "id": 14,
+            "slug": "real-time-collab-editor",
+            "title": "Real-Time Collaborative Editor",
+            "short_description": "Google Docs-like editor with live collaboration",
+            "description": "Editor dokumen kolaboratif realtime dengan operational transformation, WebSocket, Next.js frontend, dan PostgreSQL persistence.",
+            "category_id": 1,
+            "technologies": [1, 16, 27, 11, 5],
+            "project_url": "https://collab-editor.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": false
+        },
+        {
+            "id": 15,
+            "slug": "ci-cd-pipeline-toolkit",
+            "title": "CI/CD Pipeline Toolkit",
+            "short_description": "Automated deployment pipelines with GitHub Actions",
+            "description": "Toolkit pipeline CI/CD otomatis menggunakan GitHub Actions, Docker, dan deployment multi-environment untuk tim pengembang.",
+            "category_id": 5,
+            "technologies": [12, 15, 5, 27],
+            "project_url": "https://cicd-toolkit.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": false
+        },
+        {
+            "id": 16,
+            "slug": "waste-sorting-ai",
+            "title": "Waste Sorting AI",
+            "short_description": "Computer vision for automated waste classification",
+            "description": "Sistem klasifikasi sampah otomatis menggunakan computer vision dengan TensorFlow, deployed di Raspberry Pi untuk sorting line industri.",
+            "category_id": 2,
+            "technologies": [9, 10, 26, 7],
+            "project_url": "https://waste-sorting.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": false
+        },
+        {
+            "id": 17,
+            "slug": "supabase-saas-starter",
+            "title": "Supabase SaaS Starter",
+            "short_description": "Starter kit for SaaS apps with Supabase & Next.js",
+            "description": "Starter kit untuk membangun aplikasi SaaS dengan autentikasi, subscription management, dan realtime database menggunakan Supabase dan Next.js.",
+            "category_id": 1,
+            "technologies": [1, 16, 18, 17, 5],
+            "project_url": "https://saas-starter.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": false
+        },
+        {
+            "id": 18,
+            "slug": "kotlin-android-inventory",
+            "title": "Kotlin Inventory Scanner",
+            "short_description": "Native Android app for warehouse scanning",
+            "description": "Aplikasi Android native dengan Kotlin untuk scanning barcode inventaris, integrasi REST API, dan dukungan offline dengan Room database.",
+            "category_id": 4,
+            "technologies": [23, 24, 11, 19],
+            "project_url": "https://kotlin-inventory.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": false
+        },
+        {
+            "id": 19,
+            "slug": "data-pipeline-etl",
+            "title": "Data Pipeline ETL",
+            "short_description": "Scalable ETL pipeline for manufacturing data",
+            "description": "Pipeline ETL untuk mengolah data produksi dari berbagai sumber (SCADA, ERP, IoT) ke data warehouse untuk analitik dan reporting.",
+            "category_id": 3,
+            "technologies": [9, 11, 12, 19, 21],
+            "project_url": "https://etl-pipeline.example.com",
+            "open_in_new_tab": true,
+            "status": "published",
+            "is_featured": false
+        },
+        {
+            "id": 20,
+            "slug": "design-system-library",
+            "title": "Kibo Design System",
+            "short_description": "Reusable UI component library & design system",
+            "description": "Design system dengan komponen UI reusable berbasis React, TypeScript, dan Tailwind. Dilengkapi dokumentasi interaktif dengan Storybook.",
+            "category_id": 1,
+            "technologies": [1, 16, 5, 6, 20],
+            "project_url": "https://design-system.example.com",
             "open_in_new_tab": true,
             "status": "published",
             "is_featured": false
